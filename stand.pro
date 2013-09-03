@@ -14,12 +14,14 @@ HEADERS += \
     standConfig.h \
     standSynth.h \
     ../../tools/utauloid/ust.h \
-    ../../tools/utauloid/oto.h
+    ../../tools/utauloid/oto.h \
+    ../../editor/Utils.h
 
 SOURCES += \
     standSynth.cpp \
     ../../tools/utauloid/ust.cpp \
-    ../../tools/utauloid/oto.cpp
+    ../../tools/utauloid/oto.cpp \
+    ../../editor/Utils.cpp
 
 #--------------------------------------------
 CONFIG(debug, debug|release) {
