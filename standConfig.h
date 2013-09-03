@@ -1,0 +1,8 @@
+#ifndef STANDCONFIG_H
+#define STANDCONFIG_H
+
+const int CONST_STANDSYNTH_VER_MJ = 0;
+const int CONST_STANDSYNTH_VER_MN = 1;
+
+
+#endif // STANDCONFIG_H

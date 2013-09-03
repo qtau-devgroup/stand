@@ -1,4 +1,6 @@
-stand
+Stand
 =====
 
-"Stand" synthesizer plugin by HAL@ShurabaP
+"Stand" vocal synthesizer plugin for QTau by HAL@ShurabaP
+
+License: BSD
