@@ -15,13 +15,15 @@ HEADERS += \
     standSynth.h \
     ../../tools/utauloid/ust.h \
     ../../tools/utauloid/oto.h \
-    ../../editor/Utils.h
+    ../../editor/Utils.h \
+    ../../editor/audio/Source.h
 
 SOURCES += \
     standSynth.cpp \
     ../../tools/utauloid/ust.cpp \
     ../../tools/utauloid/oto.cpp \
-    ../../editor/Utils.cpp
+    ../../editor/Utils.cpp \
+    ../../editor/audio/Source.cpp
 
 #--------------------------------------------
 CONFIG(debug, debug|release) {
