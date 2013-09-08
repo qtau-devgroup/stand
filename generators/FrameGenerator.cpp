@@ -5,4 +5,25 @@ QStandFrameList standFrameGenerator::generate(const ust &sequence, const Config 
 {
     int msLength = sequence.notes.last().pulseOffset + sequence.notes.last().pulseLength;
     int frameCount = msLength / config.msFramePeriod + 0.5;
+    QStandFrameList frames;
+    frames.reserve(frameCount);
+    for(int i = 0; i < frameCount; i++)
+    {
+        frames.append(QList<standFrame>());
+    }
+
+    for(int i = sequence.notes.size() - 1; i >= 0; i--)
+    {
+        const ust_note &note =  sequence.notes[i];
+        int beginFrame = note.pulseOffset / config.msFramePeriod;
+        int endFrame = (note.pulseLength + note.pulseOffset) / config.msFramePeriod + 0.5;
+        for(int f = beginFrame; f < endFrame; f++)
+        {
+            double msForNote = (f - beginFrame) * config.msFramePeriod;
+            QList<standFrameFactor> &frame = frames[f];
+            // Treats lyric as pronounce.
+            frame.append(standFrameFactor(msForNote, 1.0, note.lyric));
+        }
+    }
+    return frames;
 }

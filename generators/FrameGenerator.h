@@ -6,17 +6,19 @@
 #include "utauloid/ust.h"
 #include "utauloid/oto.h"
 
-typedef struct _standSingleFrame
+typedef struct _standFrameFactor
 {
     double msPosition;
     double amplify;    // How much amplify this frame.
-    Oto oto;
-} standSingleFrame;
+    QString pronounce;
+    _standFrameFactor(double msPosition, double amplify, const QString &pronounce) : pronounce(pronounce)
+    {
+        this->msPosition = msPosition;
+        this->amplify = amplify;
+    }
+} standFrameFactor;
 
-typedef struct _standFrame
-{
-    QList<standSingleFrame> frames;
-} standFrame;
+typedef QList<standFrameFactor> standFrame;
 
 typedef QList<standFrame> QStandFrameList;
 
