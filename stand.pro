@@ -18,7 +18,8 @@ HEADERS += \
     ../../editor/Utils.h \
     ../../editor/audio/Source.h \
     generators/F0Generator.h \
-    util/Temperament.h
+    util/Temperament.h \
+    generators/FrameGenerator.h
 
 SOURCES += \
     standSynth.cpp \
@@ -27,7 +28,8 @@ SOURCES += \
     ../../editor/Utils.cpp \
     ../../editor/audio/Source.cpp \
     generators/F0Generator.cpp \
-    util/Temperament.cpp
+    util/Temperament.cpp \
+    generators/FrameGenerator.cpp
 
 #--------------------------------------------
 CONFIG(debug, debug|release) {

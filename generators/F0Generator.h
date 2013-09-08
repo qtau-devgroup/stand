@@ -6,6 +6,11 @@
 
 class Temperament;
 
+/**
+ * @brief Generates intermediate data for Stand synth.
+ *        The generated contour simply represents a pitch contour.
+ *        If contour contains 0 Hz data, it means that no note is located there.
+ */
 class standF0Generator
 {
 public:
@@ -16,9 +21,9 @@ public:
         {
             this->msFramePeriod = msFramePeriod;
         }
-        _Config(_Config &r)
+        _Config(const _Config &other)
         {
-            msFramePeriod = r.msFramePeriod;
+            this->msFramePeriod = other.msFramePeriod;
         }
     } Config;
 
