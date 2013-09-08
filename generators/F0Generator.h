@@ -1,3 +1,4 @@
+/* F0Generator.h from Stand http://github.com/qtau-devgroup/stand by HAL@ShurabaP, BSD license */
 #ifndef F0GENERATOR_H
 #define F0GENERATOR_H
 

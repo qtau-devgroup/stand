@@ -1,3 +1,4 @@
+/* Temperament.cpp from Stand http://github.com/qtau-devgroup/stand by HAL@ShurabaP, BSD license */
 #ifndef TEMPERAMENT_H
 #define TEMPERAMENT_H
 

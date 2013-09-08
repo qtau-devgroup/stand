@@ -1,3 +1,4 @@
+/* FrameGenerator.h from Stand http://github.com/qtau-devgroup/stand by HAL@ShurabaP, BSD license */
 #ifndef STAND_FRAMEGENERATOR_H
 #define STAND_FRAMEGENERATOR_H
 

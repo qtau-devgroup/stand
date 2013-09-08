@@ -1,3 +1,4 @@
+/* F0Generator.cpp from Stand http://github.com/qtau-devgroup/stand by HAL@ShurabaP, BSD license */
 #include "F0Generator.h"
 
 #include "../util/Temperament.h"
