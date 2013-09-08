@@ -16,14 +16,18 @@ HEADERS += \
     ../../tools/utauloid/ust.h \
     ../../tools/utauloid/oto.h \
     ../../editor/Utils.h \
-    ../../editor/audio/Source.h
+    ../../editor/audio/Source.h \
+    generators/F0Generator.h \
+    util/Temperament.h
 
 SOURCES += \
     standSynth.cpp \
     ../../tools/utauloid/ust.cpp \
     ../../tools/utauloid/oto.cpp \
     ../../editor/Utils.cpp \
-    ../../editor/audio/Source.cpp
+    ../../editor/audio/Source.cpp \
+    generators/F0Generator.cpp \
+    util/Temperament.cpp
 
 #--------------------------------------------
 CONFIG(debug, debug|release) {
