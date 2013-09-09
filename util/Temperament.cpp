@@ -5,8 +5,8 @@
 
 EqualTemperament::EqualTemperament(double concertPitch, int keyNumber)
 {
-    _frequencies.resize(HIGHEST_KEY);
-    for(int k = 0; k < HIGHEST_KEY; k++)
+    _frequencies.resize(HighestKey);
+    for(int k = 0; k < HighestKey; k++)
     {
         _frequencies[k] = generate(k, concertPitch, keyNumber);
     }

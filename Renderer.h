@@ -8,8 +8,22 @@
 class standRenderer
 {
 public:
-    standRenderer();
-    void render(const ust &sequence, const QOtoMap &otoMap);
+    typedef struct _Config {
+        double msFramePeriod;
+        int sampleRate;
+        double f0Default;
+        double f0Floor;
+        double kLog2; // from WORLD
+        _Config(double msFramePeriod = 2.0,
+                int sampleRate = 44100,
+                double f0Default = 150.0,
+                double f0Floor = 71.0,
+                double kLog2 = 0.69314718055994529);
+        _Config(const _Config &other);
+        int fftLength() const;
+    } Config;
+
+    void render(const ust &sequence, const QOtoMap &otoMap, const Config& config);
 };
 
 #endif // STAND_RENDERER_H

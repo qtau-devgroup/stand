@@ -13,7 +13,7 @@ public:
 class EqualTemperament
 {
 public:
-    int HIGHEST_KEY = 128;
+    static const int HighestKey = 128;
     EqualTemperament(double concertPitch = 440.0, int keyNumber = 69);
 
     double frequency(int keyNumber) const;
