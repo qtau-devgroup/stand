@@ -1,3 +1,4 @@
+/* Synthesis.h from Stand http://github.com/qtau-devgroup/stand by HAL@ShurabaP, BSD license */
 #ifndef STAND_SYNTHESIS_H
 #define STAND_SYNTHESIS_H
 
