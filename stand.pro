@@ -19,7 +19,10 @@ HEADERS += \
     ../../editor/audio/Source.h \
     generators/F0Generator.h \
     util/Temperament.h \
-    generators/FrameGenerator.h
+    generators/FrameGenerator.h \
+    synthesis/Synthesis.h \
+    synthesis/Corpus.h \
+    synthesis/Spectrums.h
 
 SOURCES += \
     standSynth.cpp \
@@ -29,7 +32,10 @@ SOURCES += \
     ../../editor/audio/Source.cpp \
     generators/F0Generator.cpp \
     util/Temperament.cpp \
-    generators/FrameGenerator.cpp
+    generators/FrameGenerator.cpp \
+    synthesis/Synthesis.cpp \
+    synthesis/Corpus.cpp \
+    synthesis/Spectrums.cpp
 
 #--------------------------------------------
 CONFIG(debug, debug|release) {
