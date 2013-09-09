@@ -9,7 +9,7 @@ class QString;
 class standCorpus
 {
 public:
-    explicit standCorpus(QOtoMap &otoMap);
+    explicit standCorpus(const QOtoMap &otoMap);
     virtual void find(standSpectrums &dst, const QString &pronounce, double ms);
 protected:
     QOtoMap otoMap;

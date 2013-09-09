@@ -24,7 +24,8 @@ HEADERS += \
     synthesis/Corpus.h \
     synthesis/Spectrums.h \
     synthesis/Analysis.h \
-    synthesis/Phoneme.h
+    synthesis/Phoneme.h \
+    Renderer.h
 
 SOURCES += \
     standSynth.cpp \
@@ -39,7 +40,8 @@ SOURCES += \
     synthesis/Corpus.cpp \
     synthesis/Spectrums.cpp \
     synthesis/Analysis.cpp \
-    synthesis/Phoneme.cpp
+    synthesis/Phoneme.cpp \
+    Renderer.cpp
 
 #--------------------------------------------
 CONFIG(debug, debug|release) {

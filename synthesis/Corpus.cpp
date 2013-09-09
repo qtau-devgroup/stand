@@ -5,7 +5,7 @@
 
 #include "Corpus.h"
 
-standCorpus::standCorpus(QOtoMap &otoMap) :
+standCorpus::standCorpus(const QOtoMap &otoMap) :
     otoMap(otoMap)
 {
 }
