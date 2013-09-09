@@ -34,10 +34,17 @@ void standSynthesis::synthesize(float *raw, int length, const standFrame &frame)
     }
 
     double *wave = new double[config.fftLength];
-    // synthesize spectrums here and add them into raw.
+
+    synthesizeOneFrame(wave, aggregate);
+
     for(int t = 0; t < length && t < config.fftLength; t++)
     {
         raw[t] += wave[t];
     }
     delete[] wave;
+}
+
+void standSynthesis::synthesizeOneFrame(double *wave, const standSpectrums &spectrums)
+{
+    // TODO : one frame synthesis.
 }

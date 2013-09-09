@@ -22,7 +22,9 @@ HEADERS += \
     generators/FrameGenerator.h \
     synthesis/Synthesis.h \
     synthesis/Corpus.h \
-    synthesis/Spectrums.h
+    synthesis/Spectrums.h \
+    synthesis/Analysis.h \
+    synthesis/Phoneme.h
 
 SOURCES += \
     standSynth.cpp \
@@ -35,7 +37,9 @@ SOURCES += \
     generators/FrameGenerator.cpp \
     synthesis/Synthesis.cpp \
     synthesis/Corpus.cpp \
-    synthesis/Spectrums.cpp
+    synthesis/Spectrums.cpp \
+    synthesis/Analysis.cpp \
+    synthesis/Phoneme.cpp
 
 #--------------------------------------------
 CONFIG(debug, debug|release) {

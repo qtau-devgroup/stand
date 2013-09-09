@@ -32,6 +32,7 @@ public:
     explicit standSynthesis(const Config &config);
     virtual void synthesize(float *raw, int length, const standFrame &frame);
 protected:
+    void synthesizeOneFrame(double *wave, const standSpectrums &spectrums);
     Config config;
     standSpectrums aggregate;
     standSpectrums spectrums;
