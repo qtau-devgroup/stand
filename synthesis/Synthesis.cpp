@@ -46,5 +46,25 @@ void standSynthesis::synthesize(float *raw, int length, const standFrame &frame)
 
 void standSynthesis::synthesizeOneFrame(double *wave, const standSpectrums &spectrums)
 {
+    typedef double complex[2];
     // TODO : one frame synthesis.
+    complex *minimumPhase = new complex[config.fftLength];
+    // calculate minimum phase spectrum from power-spectrum
+
+    // calculate spectrum; minimumphase spectrum spectrum multipled by residual.
+    complex *spectrum = new complex[config.fftLength];
+    spectrum[0][0] = minimumPhase[0][0] * spectrums.residual[0];
+    spectrum[0][1] = 0.0;
+    for(int i = 1; i < config.fftLength / 2; i++)
+    {
+        spectrum[i][0] = minimumPhase[i][0] * spectrums.residual[i*2-1] - minimumPhase[i][1] * spectrums.residual[i*2];
+        spectrum[i][1] = minimumPhase[i][1] * spectrums.residual[i*2] + minimumPhase[i][0] * spectrums.residual[i*2-1];
+    }
+    spectrum[config.fftLength/2][0] = minimumPhase[config.fftLength/2][0] * spectrums.residual[config.fftLength-1];
+    spectrum[config.fftLength/2][1] = 0.0;
+    // inverse FFT and get raw waveform in wave.
+
+    // delete buffers
+    delete[] spectrum;
+    delete[] minimumPhase;
 }

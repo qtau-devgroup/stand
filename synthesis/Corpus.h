@@ -2,7 +2,10 @@
 #ifndef STAND_CORPUS_H
 #define STAND_CORPUS_H
 
+#include <QHash>
 #include "utauloid/oto.h"
+#include "synthesis/Phoneme.h"
+
 class standSpectrums;
 class QString;
 
@@ -13,6 +16,7 @@ public:
     virtual void find(standSpectrums &dst, const QString &pronounce, double ms);
 protected:
     QOtoMap otoMap;
+    QHash<QString, standPhoneme> phonemeMap;
 };
 
 #endif // CORPUS_H
