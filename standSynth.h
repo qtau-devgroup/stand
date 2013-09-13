@@ -37,10 +37,10 @@ protected:
     QOtoMap vbCfg;
     ust     songCfg;
 
-    inline void sLog(const QString &msg) { log->addMessage(msg, vsLog::success); }
-    inline void dLog(const QString &msg) { log->addMessage(msg, vsLog::debug);   }
-    inline void iLog(const QString &msg) { log->addMessage(msg, vsLog::info);    }
-    inline void eLog(const QString &msg) { log->addMessage(msg, vsLog::error);   }
+    inline void sLog(const QString &msg) { log->addMessage(msg, ELog::success); }
+    inline void dLog(const QString &msg) { log->addMessage(msg, ELog::debug);   }
+    inline void iLog(const QString &msg) { log->addMessage(msg, ELog::info);    }
+    inline void eLog(const QString &msg) { log->addMessage(msg, ELog::error);   }
 };
 
 #endif // STANDSYNTH_H

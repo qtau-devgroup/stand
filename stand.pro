@@ -45,6 +45,8 @@ SOURCES += \
     Renderer.cpp \
     util/Util.cpp
 
+QMAKE_CXXFLAGS += -Wall -std=c++11
+
 #--------------------------------------------
 CONFIG(debug, debug|release) {
     COMPILEDIR = $${OUT_PWD}/../../debug
