@@ -10,27 +10,27 @@
 class standSynth : public QObject, public ISynth
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "org.qtau.awesomesauce.ISynth" FILE "stand.json")
+    Q_PLUGIN_METADATA(IID c_isynth_comname FILE "stand.json")
     Q_INTERFACES(ISynth)
 
 public:
-    QString name();
-    QString description();
-    QString version();
+    QString name()                          override;
+    QString description()                   override;
+    QString version()                       override;
 
-    void setup(SSynthConfig &cfg);
-    bool setVoicebank(const QString &path);
+    void setup(SSynthConfig &cfg)           override;
+    bool setVoicebank(const QString &path)  override;
 
-    bool setVocals(const ust &u);
-    bool setVocals(const QStringList &ust);
+    bool setVocals(const ust &u)            override;
+    bool setVocals(const QStringList &ust)  override;
 
-    bool synthesize(qtauAudioSource &a);
-    bool synthesize(const QString &outFileName);
+    bool synthesize(qtauAudioSource &a)     override;
+    bool synthesize(const QString &outFileName) override;
 
-    bool isVbReady();
-    bool isVocalsReady();
+    bool isVbReady()                        override;
+    bool isVocalsReady()                    override;
 
-    bool supportsStreaming();
+    bool supportsStreaming()                override;
 
 protected:
     vsLog*  log;
