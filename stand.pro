@@ -8,7 +8,7 @@ TARGET   = $$qtLibraryTarget(stand)
 
 QT += multimedia
 
-INCLUDEPATH += ../../editor ../
+INCLUDEPATH += ../../editor .. .
 
 HEADERS += \
     standConfig.h \
