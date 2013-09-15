@@ -26,7 +26,9 @@ HEADERS += \
     synthesis/Analysis.h \
     synthesis/Phoneme.h \
     Renderer.h \
-    util/Util.h
+    util/Util.h \
+    util/dsp/MinimumPhase.h \
+    util/dsp/Fft.h
 
 SOURCES += \
     standSynth.cpp \
@@ -43,7 +45,9 @@ SOURCES += \
     synthesis/Analysis.cpp \
     synthesis/Phoneme.cpp \
     Renderer.cpp \
-    util/Util.cpp
+    util/Util.cpp \
+    util/dsp/MinimumPhase.cpp \
+    util/dsp/Fft.cpp
 
 QMAKE_CXXFLAGS += -Wall -std=c++11
 

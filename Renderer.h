@@ -23,7 +23,7 @@ public:
         int fftLength() const;
     } Config;
 
-    void render(const ust &sequence, const QOtoMap &otoMap, const Config& config);
+    void render(float *raw, int length, const ust &sequence, const QOtoMap &otoMap, const Config& config);
 };
 
 #endif // STAND_RENDERER_H
