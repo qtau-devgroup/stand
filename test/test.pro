@@ -2,7 +2,11 @@
 # http://github.com/qtau-devgroup/stand
 #-------------------------------------------------
 
-include(../stand.pro)
+VPATH += ../plugin
+INCLUDEPATH += ../plugin
+
+include(../plugin/plugin.pro)
+
 QT += testlib
 QT -= gui
 CONFIG += console
@@ -16,7 +20,7 @@ QT += testlib
 
 HEADERS += \
     AutoTest.h \
-    MinimumPhaseTest.h
+    util/dsp/MinimumPhaseTest.h
 SOURCES += \
     AutoTest.cpp
 

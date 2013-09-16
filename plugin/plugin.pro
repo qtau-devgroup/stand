@@ -8,15 +8,15 @@ TARGET   = $$qtLibraryTarget(stand)
 
 QT += multimedia
 
-INCLUDEPATH += ../../editor .. .
+INCLUDEPATH += ../../../editor ../.. .
 
 HEADERS += \
     standConfig.h \
     standSynth.h \
-    ../../tools/utauloid/ust.h \
-    ../../tools/utauloid/oto.h \
-    ../../editor/Utils.h \
-    ../../editor/audio/Source.h \
+    ../../../tools/utauloid/ust.h \
+    ../../../tools/utauloid/oto.h \
+    ../../../editor/Utils.h \
+    ../../../editor/audio/Source.h \
     generators/F0Generator.h \
     util/Temperament.h \
     generators/FrameGenerator.h \
@@ -32,10 +32,10 @@ HEADERS += \
 
 SOURCES += \
     standSynth.cpp \
-    ../../tools/utauloid/ust.cpp \
-    ../../tools/utauloid/oto.cpp \
-    ../../editor/Utils.cpp \
-    ../../editor/audio/Source.cpp \
+    ../../../tools/utauloid/ust.cpp \
+    ../../../tools/utauloid/oto.cpp \
+    ../../../editor/Utils.cpp \
+    ../../../editor/audio/Source.cpp \
     generators/F0Generator.cpp \
     util/Temperament.cpp \
     generators/FrameGenerator.cpp \
@@ -53,9 +53,9 @@ QMAKE_CXXFLAGS += -Wall -std=c++11
 
 #--------------------------------------------
 CONFIG(debug, debug|release) {
-    COMPILEDIR = $${OUT_PWD}/../../debug
+    COMPILEDIR = $${OUT_PWD}/../../../debug
 } else {
-    COMPILEDIR = $${OUT_PWD}/../../release
+    COMPILEDIR = $${OUT_PWD}/../../../release
 }
 
 DESTDIR         = $${COMPILEDIR}/plugins

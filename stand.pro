@@ -7,5 +7,5 @@ TEMPLATE = subdirs
 CONFIG += ordered
 
 SUBDIRS += \
-    standSynth.pro \
-    tests
+    plugin \
+    test
