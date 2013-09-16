@@ -20,7 +20,8 @@ QT += testlib
 
 HEADERS += \
     AutoTest.h \
-    util/dsp/MinimumPhaseTest.h
+    util/dsp/MinimumPhaseTest.h \
+    util/dsp/FftTest.h
 SOURCES += \
     AutoTest.cpp
 
