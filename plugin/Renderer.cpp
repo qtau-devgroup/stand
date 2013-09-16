@@ -32,10 +32,8 @@ int standRenderer::_Config::fftLength() const
     return static_cast<int>(pow(2.0, 1.0 + static_cast<int>(log(3.0 * sampleRate / f0Floor + 1) / kLog2)));
 }
 
-void standRenderer::render(const ust &sequence, const QOtoMap &otoMap, const Config &config)
+void standRenderer::render(float *raw, int length, const ust &sequence, const QOtoMap &otoMap, const Config &config)
 {
-    int ticksLength = sequence.notes.last().pulseOffset + sequence.notes.last().pulseLength;
-    int length = standUtil::msFromPulse(sequence.tempo, ticksLength) * config.sampleRate / 1000.0 + 0.5;
     int fftLength = config.fftLength();
     standF0Generator f0gen;
     standFrameGenerator framegen;
@@ -46,7 +44,6 @@ void standRenderer::render(const ust &sequence, const QOtoMap &otoMap, const Con
     standCorpus corpus(otoMap);
     standSynthesis synth(standSynthesis::Config(&corpus, config.msFramePeriod, fftLength));
 
-    float *raw = new float[length];
     for(int i = 0; i < length; i++)
     {
         raw[i] = 0.0f;
@@ -62,6 +59,4 @@ void standRenderer::render(const ust &sequence, const QOtoMap &otoMap, const Con
         ms += (f0[f] < config.f0Floor) ? 1000 / config.f0Default : 1000 / f0[f];
         f = ms / config.msFramePeriod;
     }
-
-    delete[] raw;
 }
