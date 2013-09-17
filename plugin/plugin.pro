@@ -47,7 +47,7 @@ SOURCES += \
     Renderer.cpp \
     util/Util.cpp \
     util/dsp/MinimumPhase.cpp \
-    util/dsp/Fft.cpp
+    util/dsp/fft.cpp
 
 QMAKE_CXXFLAGS += -Wall -std=c++11
 

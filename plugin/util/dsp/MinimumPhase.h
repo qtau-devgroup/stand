@@ -2,7 +2,7 @@
 #ifndef MINIMUMPHASE_H
 #define MINIMUMPHASE_H
 
-#include "util/dsp/Fft.h"
+#include "util/dsp/fft.h"
 
 class MinimumPhase
 {

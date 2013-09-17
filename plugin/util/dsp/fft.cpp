@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#include "Fft.h"
+#include "fft.h"
 
 Fft::Fft(int fftLength)
 {
