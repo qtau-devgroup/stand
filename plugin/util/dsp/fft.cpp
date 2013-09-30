@@ -4,34 +4,56 @@
 
 #include "Fft.h"
 
-Fft::Fft(int fftLength)
+Fft::Fft(const Config &config) : _config(config)
 {
-    void makewt(int nw, int *ip, double *w);
-    this->fftLength = fftLength;
+    _ip = NULL;
+    _w = NULL;
+    _createBuffer();
+}
+
+Fft::~Fft()
+{
+    _destroy();
+}
+
+void Fft::_destroy()
+{
+    delete [] _ip;
+    delete [] _w;
+    _ip = NULL;
+    _w = NULL;
+}
+
+void Fft::_createBuffer()
+{
+    void makewt(int , int *, double *);
+    _destroy();
+    int fftLength = _config.fftLength * _config.type;
     _ip = new int[(int)ceil(2 + sqrt(fftLength))];
     _w = new double[fftLength];
     _ip[0] = 0;
     makewt(fftLength, _ip, _w);
 }
 
-Fft::~Fft()
-{
-    delete[] _ip;
-    delete[] _w;
-}
-
-void Fft::complex(int fftLength, int sign, double *inout)
+void Fft::execute(int sign, double *inout)
 {
     void cdft(int, int, double *, int *, double *);
-    cdft(fftLength * 2, sign, inout, _ip, _w);
-}
-
-void Fft::real(int fftLength, int sign, double *inout)
-{
     void rdft(int, int, double *, int *, double *);
-    rdft(fftLength * 2, sign, inout, _ip, _w);
+    switch(_config.type)
+    {
+    case Complex:
+        cdft(_config.fftLength * 2, sign, inout, _ip, _w);
+        break;
+    case Real:
+        rdft(_config.fftLength, sign, inout, _ip, _w);
+        break;
+    }
 }
 
+const Fft::Config &Fft::config() const
+{
+    return _config;
+}
 
 //-----------------------------------------------------------------------
 // The following functions are reffered by

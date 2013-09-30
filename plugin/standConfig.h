@@ -1,3 +1,4 @@
+/* StandConfig.h from Stand http://github.com/qtau-devgroup/stand by HAL@ShurabaP, BSD license */
 #ifndef STANDCONFIG_H
 #define STANDCONFIG_H
 

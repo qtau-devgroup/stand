@@ -1,3 +1,4 @@
+/* AutoTest.h from Stand http://github.com/qtau-devgroup/stand by HAL@ShurabaP, BSD license */
 #ifndef AUTOTEST_H
 #define AUTOTEST_H
 

@@ -1,3 +1,4 @@
+/* MinimumPhaseTest.h from Stand http://github.com/qtau-devgroup/stand by HAL@ShurabaP, BSD license */
 #ifndef MINIMUM_PHASE_TEST_H
 #define MINIMUM_PHASE_TEST_H
 
@@ -21,8 +22,8 @@ private slots:
          {
              power[i] = 1.0;
          }
-         mp.spectrum(out, power, fftLength);
-         for(int i = 0; i < fftLength / 2; i++)
+         mp.spectrum(out, power);
+         for(int i = 0; i < fftLength; i++)
          {
              if(fabs(out[i*2] - 1.0) > Epsilon)
              {

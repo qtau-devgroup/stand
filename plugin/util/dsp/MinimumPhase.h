@@ -11,9 +11,10 @@ public:
     /**
      * Calculates corresponding minimum-phase spectrum to given power specturm
      */
-    void spectrum(double *minimumPhase, double *powerSpectrum, int fftLength);
+    void spectrum(double *minimumPhase, double *powerSpectrum);
 private:
-    Fft fft;
+    Fft real;
+    Fft complex;
 };
 
 #endif // MINIMUMPHASE_H

@@ -23,7 +23,8 @@ HEADERS += \
     util/dsp/MinimumPhaseTest.h \
     util/dsp/FftTest.h
 SOURCES += \
-    AutoTest.cpp
+    AutoTest.cpp \
+    main.cpp
 
 QMAKE_CXXFLAGS += -Wall -std=c++11
 

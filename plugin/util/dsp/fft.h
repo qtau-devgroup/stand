@@ -10,16 +10,38 @@ class Fft
 public:
     static const int Inverse = -1;
     static const int Forward = 1;
+    enum Type
+    {
+        Real = 1,
+        Complex = 2
+    };
+    typedef struct _Config
+    {
+        int fftLength;
+        Type type;
+        _Config(int fftLength, Type type)
+        {
+            this->fftLength = fftLength;
+            this->type = type;
+        }
+        _Config(const _Config &other)
+        {
+            this->fftLength = other.fftLength;
+            this->type = other.type;
+        }
+    } Config;
 
 public:
-    explicit Fft(int fftLength);
+    explicit Fft(const Config &config);
     virtual ~Fft();
-    void complex(int fftLength, int sign, double *inout);
-    void real(int fftLength, int sign, double *inout);
-    int fftLength;
+    void execute(int sign, double *inout);
+    const Config &config() const;
 private:
+    void _createBuffer();
+    void _destroy();
     int *_ip;
     double *_w;
+    Config _config;
 };
 
 #endif // FFT_H

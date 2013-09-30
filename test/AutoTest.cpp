@@ -1,3 +1,4 @@
+/* AutoTest.cpp from Stand http://github.com/qtau-devgroup/stand by HAL@ShurabaP, BSD license */
 #include "AutoTest.h"
 
 namespace AutoTest
@@ -12,6 +13,7 @@ QHash<QString, QObject *> &tests()
 int run(int argc, char *argv[])
 {
     int ret = 0;
+    qDebug("%d", tests().size());
     foreach (QObject* test, tests().values())
     {
         ret |= QTest::qExec(test, argc, argv);
@@ -21,8 +23,3 @@ int run(int argc, char *argv[])
 
 }
 
-
-int main(int argc, char *argv[])
-{
-    return AutoTest::run(argc, argv);
-}
