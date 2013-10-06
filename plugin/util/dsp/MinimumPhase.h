@@ -4,14 +4,17 @@
 
 #include "util/dsp/fft.h"
 
+/**
+ * @brief Keeps buffers for calculation of minimum phase spectrum.
+ */
 class MinimumPhase
 {
 public:
     explicit MinimumPhase(int fftLength);
     /**
-     * Calculates corresponding minimum-phase spectrum to given power specturm
+     * @brief Calculates corresponding minimum-phase spectrum to given power specturm
      */
-    void spectrum(double *minimumPhase, double *powerSpectrum);
+    void execute(double *minimumPhase, double *powerSpectrum);
 private:
     Fft real;
     Fft complex;

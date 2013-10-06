@@ -26,13 +26,23 @@ void Fft::_destroy()
 
 void Fft::_createBuffer()
 {
-    void makewt(int , int *, double *);
+    void makewt(int, int *, double *);
+    void makect(int, int *, double *);
     _destroy();
-    int fftLength = _config.fftLength * _config.type;
-    _ip = new int[(int)ceil(2 + sqrt(fftLength))];
-    _w = new double[fftLength];
+    int fftLength = _config.fftLength;
+    _ip = new int[fftLength >> 1];
+    _w = new double[fftLength >> 1];
     _ip[0] = 0;
-    makewt(fftLength, _ip, _w);
+    switch(_config.type)
+    {
+    case Fft::Complex:
+        makewt(fftLength >> 1, _ip, _w);
+        break;
+    case Fft::Real:
+        makewt(fftLength >> 2, _ip, _w);
+        makect(fftLength >> 2, _ip, _w + (fftLength >> 2));
+        break;
+    }
 }
 
 void Fft::execute(int sign, double *inout)
