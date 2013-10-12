@@ -15,7 +15,7 @@ public:
      * @brief Calculates corresponding minimum-phase spectrum to given power specturm
      */
     void execute(double *minimumPhase, double *powerSpectrum);
-private:
+
     Fft real;
     Fft complex;
 };

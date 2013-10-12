@@ -2,21 +2,23 @@
 #ifndef STAND_CORPUS_H
 #define STAND_CORPUS_H
 
+#include <QFileInfo>
 #include <QHash>
 #include "utauloid/oto.h"
-#include "synthesis/Phoneme.h"
 
 class standSpectrums;
+class standWaveRepository;
 class QString;
 
 class standCorpus
 {
 public:
-    explicit standCorpus(const QOtoMap &otoMap);
-    virtual void find(standSpectrums &dst, const QString &pronounce, double ms);
+    explicit standCorpus(standWaveRepository *waveforms, const QOtoMap &otoMap);
+    virtual ~standCorpus();
+    virtual bool find(standSpectrums &dst, const QString &pronounce, double ms);
 protected:
     QOtoMap otoMap;
-    QHash<QString, standPhoneme> phonemeMap;
+    standWaveRepository *waveforms;
 };
 
 #endif // CORPUS_H

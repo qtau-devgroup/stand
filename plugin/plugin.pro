@@ -24,11 +24,13 @@ HEADERS += \
     synthesis/Corpus.h \
     synthesis/Spectrums.h \
     synthesis/Analysis.h \
-    synthesis/Phoneme.h \
     Renderer.h \
     util/Util.h \
     util/dsp/MinimumPhase.h \
-    util/dsp/Fft.h
+    util/dsp/Fft.h \
+    standLogger.h \
+    synthesis/Waveform.h \
+    ../plugin/synthesis/WaveRepository.h
 
 SOURCES += \
     standSynth.cpp \
@@ -43,11 +45,13 @@ SOURCES += \
     synthesis/Corpus.cpp \
     synthesis/Spectrums.cpp \
     synthesis/Analysis.cpp \
-    synthesis/Phoneme.cpp \
     Renderer.cpp \
     util/Util.cpp \
     util/dsp/MinimumPhase.cpp \
-    util/dsp/fft.cpp
+    util/dsp/fft.cpp \
+    standLogger.cpp \
+    synthesis/Waveform.cpp \
+    ../plugin/synthesis/WaveRepository.cpp
 
 QMAKE_CXXFLAGS += -Wall -std=c++11
 

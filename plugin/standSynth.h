@@ -33,14 +33,8 @@ public:
     bool supportsStreaming()                override;
 
 protected:
-    vsLog*  log;
     QOtoMap vbCfg;
     ust     songCfg;
-
-    inline void sLog(const QString &msg) { log->addMessage(msg, ELog::success); }
-    inline void dLog(const QString &msg) { log->addMessage(msg, ELog::debug);   }
-    inline void iLog(const QString &msg) { log->addMessage(msg, ELog::info);    }
-    inline void eLog(const QString &msg) { log->addMessage(msg, ELog::error);   }
 };
 
 #endif // STANDSYNTH_H

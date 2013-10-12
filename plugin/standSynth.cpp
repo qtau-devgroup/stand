@@ -1,6 +1,7 @@
 /* standSynth.cpp from Stand http://github.com/qtau-devgroup/stand by HAL@ShurabaP, BSD license */
 #include "standSynth.h"
 #include "standConfig.h"
+#include "standLogger.h"
 
 #include "audio/Source.h"
 
@@ -15,7 +16,7 @@ QString standSynth::version()     { return QString("%1.%2")
 
 void standSynth::setup(SSynthConfig &cfg)
 {
-    log = cfg.log;
+    Logger::setLogger(cfg.log);
 }
 
 bool standSynth::setVoicebank(const QString &path)
@@ -33,13 +34,13 @@ bool standSynth::setVoicebank(const QString &path)
             otoStrings << reader.readLine();
 
         vbCfg = otoFromStrings(otoStrings);
-        dLog(QString("configured with %1 oto keys").arg(vbCfg.keys().length()));
+        Logger::debug(QString("configured with %1 oto keys").arg(vbCfg.keys().length()));
         result = !vbCfg.isEmpty();
 
         otoIni.close();
     }
     else
-        eLog("Stand synth could not open oto.ini from " + path);
+        Logger::error("Stand synth could not open oto.ini from " + path);
 
     return result;
 }
@@ -69,7 +70,7 @@ bool standSynth::synthesize(const QString &outFileName)
         {
             f.write(as.buffer());
             f.close();
-            sLog("Synthesized to " + outFileName);
+            Logger::success("Synthesized to " + outFileName);
         }
         else
             ok = false;

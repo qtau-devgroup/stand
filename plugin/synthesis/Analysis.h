@@ -3,14 +3,14 @@
 #define STAND_ANALYSIS_H
 
 class standSpectrums;
-class standPhoneme;
+class standWaveform;
 
 class standAnalysis
 {
 public:
     standAnalysis(int fftLength);
     ~standAnalysis();
-    virtual void analyze(standSpectrums &dst, const standPhoneme &phoneme, double ms);
+    virtual void analyze(standSpectrums &dst, const standWaveform *waveform, double ms);
 private:
     double *buffer;
 };

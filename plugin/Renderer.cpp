@@ -5,6 +5,7 @@
 #include "generators/FrameGenerator.h"
 #include "synthesis/Synthesis.h"
 #include "synthesis/Corpus.h"
+#include "synthesis/WaveRepository.h"
 #include "util/Util.h"
 
 #include "Renderer.h"
@@ -41,7 +42,8 @@ void standRenderer::render(float *raw, int length, const ust &sequence, const QO
     QVector<double> f0 = f0gen.generate(sequence, standF0Generator::Config(config.msFramePeriod));
     QStandFrameList frames = framegen.generate(sequence, standFrameGenerator::Config(config.msFramePeriod));
 
-    standCorpus corpus(otoMap);
+    standWaveRepository repository;
+    standCorpus corpus(&repository, otoMap);
     standSynthesis synth(standSynthesis::Config(&corpus, config.msFramePeriod, fftLength));
 
     for(int i = 0; i < length; i++)

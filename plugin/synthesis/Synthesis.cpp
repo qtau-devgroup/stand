@@ -5,15 +5,25 @@
 #include "Synthesis.h"
 
 standSynthesis::standSynthesis(const Config &config) :
-    config(config), aggregate(config.fftLength), spectrums(config.fftLength)
+    config(config),
+    aggregate(config.fftLength),
+    spectrums(config.fftLength),
+    minimumPhaseCalculator(config.fftLength),
+    inverse(Fft::Config(config.fftLength, Fft::Real))
 {
+    _wave = new double[config.fftLength * 2];
+}
+
+standSynthesis::~standSynthesis()
+{
+    delete[] _wave;
 }
 
 void standSynthesis::synthesize(float *raw, int length, const standFrame &frame)
 {
     for(int i = 0; i <= config.fftLength / 2; i++)
     {
-        aggregate.spectrum[i] = 1.0;
+        aggregate.power[i] = 1.0;
     }
     for(int i = 0; i < config.fftLength; i++)
     {
@@ -22,49 +32,46 @@ void standSynthesis::synthesize(float *raw, int length, const standFrame &frame)
 
     for(int i = 0; i < frame.size(); i++)
     {
-        config.corpus->find(spectrums, frame[i].pronounce, frame[i].msPosition);
+        // If nothing found here, residual is zero then waveform will be zero.
+        if(!config.corpus->find(spectrums, frame[i].pronounce, frame[i].msPosition))
+        {
+            continue;
+        }
         for(int f = 0; f <= config.fftLength / 2; f++)
         {
-            aggregate.spectrum[f] *= pow(spectrums.spectrum[f], frame[i].amplify);
+            aggregate.power[f] *= pow(spectrums.power[f], frame[i].amplify);
         }
         for(int f = 0; f < config.fftLength; f++)
         {
-            aggregate.spectrum[f] += spectrums.spectrum[f] * frame[i].amplify;
+            aggregate.residual[f] += spectrums.residual[f] * frame[i].amplify;
         }
     }
 
-    double *wave = new double[config.fftLength];
-
-    synthesizeOneFrame(wave, aggregate);
+    synthesizeOneFrame(_wave, aggregate);
 
     for(int t = 0; t < length && t < config.fftLength; t++)
     {
-        raw[t] += wave[t];
+        raw[t] += _wave[t];
     }
-    delete[] wave;
 }
 
 void standSynthesis::synthesizeOneFrame(double *wave, const standSpectrums &spectrums)
 {
-    typedef double complex[2];
-    // TODO : one frame synthesis.
-    complex *minimumPhase = new complex[config.fftLength];
-    // calculate minimum phase spectrum from power-spectrum
+    minimumPhaseCalculator.execute(wave, spectrums.power);
 
-    // calculate spectrum; minimumphase spectrum spectrum multipled by residual.
-    complex *spectrum = new complex[config.fftLength];
-    spectrum[0][0] = minimumPhase[0][0] * spectrums.residual[0];
-    spectrum[0][1] = 0.0;
+    wave[0] = wave[0] * spectrums.residual[0];
     for(int i = 1; i < config.fftLength / 2; i++)
     {
-        spectrum[i][0] = minimumPhase[i][0] * spectrums.residual[i*2-1] - minimumPhase[i][1] * spectrums.residual[i*2];
-        spectrum[i][1] = minimumPhase[i][1] * spectrums.residual[i*2] + minimumPhase[i][0] * spectrums.residual[i*2-1];
+        double re = wave[i * 2];
+        double im = wave[i * 2 + 1];
+        wave[i * 2] = re * spectrums.residual[i * 2 - 1] - im * spectrums.residual[i * 2];
+        wave[i * 2 + 1] = im * spectrums.residual[i * 2] + re * spectrums.residual[i * 2 - 1];
     }
-    spectrum[config.fftLength/2][0] = minimumPhase[config.fftLength/2][0] * spectrums.residual[config.fftLength-1];
-    spectrum[config.fftLength/2][1] = 0.0;
+    wave[1] = wave[config.fftLength] * spectrums.residual[config.fftLength - 1];
     // inverse FFT and get raw waveform in wave.
-
-    // delete buffers
-    delete[] spectrum;
-    delete[] minimumPhase;
+    inverse.execute(Fft::Inverse, wave);
+    for(int i = 0; i < config.fftLength; i++)
+    {
+        wave[i] *= 2.0;
+    }
 }

@@ -4,6 +4,7 @@
 
 #include "generators/FrameGenerator.h"
 #include "synthesis/Spectrums.h"
+#include "util/dsp/MinimumPhase.h"
 
 class standCorpus;
 
@@ -30,12 +31,17 @@ public:
     } Config;
 
     explicit standSynthesis(const Config &config);
+    virtual ~standSynthesis();
     virtual void synthesize(float *raw, int length, const standFrame &frame);
 protected:
     void synthesizeOneFrame(double *wave, const standSpectrums &spectrums);
     Config config;
     standSpectrums aggregate;
     standSpectrums spectrums;
+    MinimumPhase minimumPhaseCalculator;
+    Fft inverse;
+private:
+    double *_wave;
 };
 
 #endif // STAND_SYNTHESIS_H

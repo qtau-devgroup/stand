@@ -7,7 +7,7 @@ class standSpectrums
 public:
     standSpectrums(int fftLength);
     ~standSpectrums();
-    double *spectrum;
+    double *power;
     double *residual;
     int fftLength;
 };

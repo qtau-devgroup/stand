@@ -11,7 +11,7 @@ standAnalysis::~standAnalysis()
     delete[] buffer;
 }
 
-void standAnalysis::analyze(standSpectrums &dst, const standPhoneme &phoneme, double ms)
+void standAnalysis::analyze(standSpectrums &dst, const standWaveform *waveform, double ms)
 {
 
 }
