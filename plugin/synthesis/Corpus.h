@@ -13,12 +13,20 @@ class QString;
 class standCorpus
 {
 public:
-    explicit standCorpus(standWaveRepository *waveforms, const QOtoMap &otoMap);
+    /**
+     * @brief Initializez with waveform cache `repository` and pronounces `otoMap`
+     */
+    explicit standCorpus(const standWaveRepository *repository, const QOtoMap &otoMap);
     virtual ~standCorpus();
+
+    /**
+     * @brief Finds WORLD spectra of `pronounce` at `ms` [ms].
+     * @return whether `find` succeeds or not.
+     */
     virtual bool find(standSpectrums &dst, const QString &pronounce, double ms);
 protected:
     QOtoMap otoMap;
-    standWaveRepository *waveforms;
+    const standWaveRepository *repository;
 };
 
 #endif // CORPUS_H

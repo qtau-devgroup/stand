@@ -46,6 +46,7 @@ private:
     int _fs;
     int *_indices;
     double _msFramePeriod;
+    bool _isAvailable;
 };
 
 #endif // STAND_PHONEME_MODEL_H

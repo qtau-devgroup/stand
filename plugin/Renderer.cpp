@@ -36,13 +36,12 @@ int standRenderer::_Config::fftLength() const
 void standRenderer::render(float *raw, int length, const ust &sequence, const QOtoMap &otoMap, const Config &config)
 {
     int fftLength = config.fftLength();
-    standF0Generator f0gen;
-    standFrameGenerator framegen;
 
-    QVector<double> f0 = f0gen.generate(sequence, standF0Generator::Config(config.msFramePeriod));
-    QStandFrameList frames = framegen.generate(sequence, standFrameGenerator::Config(config.msFramePeriod));
+    QVector<double> f0 = standF0Generator().generate(sequence, standF0Generator::Config(config.msFramePeriod));
+    QStandFrameList frames = standFrameGenerator().generate(sequence, standFrameGenerator::Config(config.msFramePeriod));
 
     standWaveRepository repository;
+    // TODO:: prepare wave repository.
     standCorpus corpus(&repository, otoMap);
     standSynthesis synth(standSynthesis::Config(&corpus, config.msFramePeriod, fftLength));
 

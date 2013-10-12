@@ -6,10 +6,10 @@
 
 #include "Corpus.h"
 
-standCorpus::standCorpus(standWaveRepository *repository, const QOtoMap &otoMap) :
+standCorpus::standCorpus(const standWaveRepository *repository, const QOtoMap &otoMap) :
     otoMap(otoMap)
 {
-    this->waveforms = repository;
+    this->repository = repository;
 }
 
 standCorpus::~standCorpus()
@@ -24,14 +24,12 @@ bool standCorpus::find(standSpectrums &dst, const QString &pronounce, double ms)
         return false;
     }
     const Oto &oto = otoMap.find(pronounce).value();
-    standAnalysis analysis(dst.fftLength);
     // WaveRepository must contain all the waveforms for pronounces.
-    if(!waveforms->contains(oto.fileName))
+    if(!repository->contains(oto.fileName))
     {
         Logger::info("The file `" + oto.fileName + "` does not exist in this corpus.");
         return false;
     }
-    const standWaveform *waveform = waveforms->find(oto.fileName);
-    analysis.analyze(dst, waveform, ms);
+    standAnalysis(dst.fftLength).analyze(dst, repository->find(oto.fileName), ms);
     return true;
 }

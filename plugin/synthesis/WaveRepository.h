@@ -20,7 +20,7 @@ private:
     /**
      * This map contains (filepath, phoneme) not pronounce.
      */
-    QHash<QFileInfo, standWaveform *> _waveforms;
+    QHash<QString, standWaveform *> _waveforms;
     double _msFramePeriod;
 };
 

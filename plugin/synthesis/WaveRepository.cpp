@@ -10,7 +10,7 @@ standWaveRepository::standWaveRepository(double msFramePeriod)
 
 standWaveRepository::~standWaveRepository()
 {
-    foreach(standWaveform *w, phonemeMap)
+    foreach(standWaveform *w, _waveforms)
     {
         delete w;
     }
@@ -24,16 +24,16 @@ bool standWaveRepository::add(const QFileInfo &fileinfo)
         delete w;
         return false;
     }
-    _waveforms.insert(fileinfo, w);
+    _waveforms.insert(fileinfo.absoluteFilePath(), w);
     return true;
 }
 
 const standWaveform *standWaveRepository::find(const QFileInfo &fileinfo) const
 {
-    return _waveforms.find(fileinfo);
+    return contains(fileinfo.absoluteFilePath()) ? _waveforms.find(fileinfo.absoluteFilePath()).value() : NULL;
 }
 
 bool standWaveRepository::contains(const QFileInfo &fileinfo) const
 {
-    return _waveforms.contains(fileinfo);
+    return _waveforms.contains(fileinfo.absoluteFilePath());
 }

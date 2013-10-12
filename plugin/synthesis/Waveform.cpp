@@ -10,6 +10,7 @@ standWaveform::standWaveform(const QFileInfo &fileinfo, double msFramePeriod)
     _indices = NULL;
     _fs = 0;
     _msFramePeriod = msFramePeriod;
+    _isAvailable = false;
 
     // TODO: read wave
 }
@@ -20,4 +21,9 @@ standWaveform::~standWaveform()
     delete[] _t;
     delete[] _wave;
     delete[] _indices;
+}
+
+bool standWaveform::isAvailable() const
+{
+    return _isAvailable;
 }
