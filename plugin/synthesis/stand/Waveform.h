@@ -10,14 +10,13 @@ class QFileInfo;
 class standWaveform
 {
 public:
-    explicit standWaveform(const QFileInfo &fileinfo, double msFramePeriod);
     ~standWaveform();
 
-    const double *f0() const
+    const float *f0() const
     {
         return _f0;
     }
-    const double *t() const
+    const float *t() const
     {
         return _t;
     }
@@ -37,16 +36,22 @@ public:
     {
         return _msFramePeriod;
     }
-    bool isAvailable() const;
+    int length() const
+    {
+        return _length;
+    }
 
 private:
-    double *_f0;
-    double *_t;
+    explicit standWaveform(float *wave, float *t, float *f0, int fs, int *indices, double msFramePeriod, int length);
+    float *_f0;
+    float *_t;
     float *_wave;
     int _fs;
     int *_indices;
+    int _length;
     double _msFramePeriod;
-    bool _isAvailable;
+
+    friend class standWaveformFactory;
 };
 
 #endif // STAND_PHONEME_MODEL_H

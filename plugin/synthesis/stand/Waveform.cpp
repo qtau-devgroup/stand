@@ -2,17 +2,15 @@
 #include <QFileInfo>
 #include "Waveform.h"
 
-standWaveform::standWaveform(const QFileInfo &fileinfo, double msFramePeriod)
+standWaveform::standWaveform(float *wave, float *t, float *f0, int fs, int *indices, double msFramePeriod, int length)
 {
-    _f0 = NULL;
-    _t = NULL;
-    _wave = NULL;
-    _indices = NULL;
-    _fs = 0;
+    _f0 = f0;
+    _t = t;
+    _wave = wave;
+    _indices = indices;
+    _fs = fs;
     _msFramePeriod = msFramePeriod;
-    _isAvailable = false;
-
-    // TODO: read wave
+    _length = length;
 }
 
 standWaveform::~standWaveform()
@@ -23,7 +21,3 @@ standWaveform::~standWaveform()
     delete[] _indices;
 }
 
-bool standWaveform::isAvailable() const
-{
-    return _isAvailable;
-}

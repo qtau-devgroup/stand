@@ -17,20 +17,30 @@ HEADERS += \
     ../../../tools/utauloid/oto.h \
     ../../../editor/Utils.h \
     ../../../editor/audio/Source.h \
-    generators/F0Generator.h \
-    util/Temperament.h \
-    generators/FrameGenerator.h \
-    synthesis/Synthesis.h \
-    synthesis/Corpus.h \
-    synthesis/Spectrums.h \
-    synthesis/Analysis.h \
+    standLogger.h \
     Renderer.h \
     util/Util.h \
+    util/Temperament.h \
+    util/SynchronizedRepository.h \
+    util/ResourceRepositoryWithFactory.h \
+    util/ResourceRepository.h \
+    util/ResourceFactory.h \
     util/dsp/MinimumPhase.h \
     util/dsp/Fft.h \
-    standLogger.h \
-    synthesis/Waveform.h \
-    ../plugin/synthesis/WaveRepository.h
+    synthesis/Synthesizer.h \
+    synthesis/Synthesis.h \
+    synthesis/stand/WaveformRepository.h \
+    synthesis/stand/WaveformFactory.h \
+    synthesis/stand/Waveform.h \
+    synthesis/stand/FrameList.h \
+    synthesis/stand/Corpus.h \
+    generators/FrameGenerator.h \
+    generators/F0Generator.h \
+    synthesis/Renderer.h \
+    synthesis/stand/WorldSynthesizer.h \
+    synthesis/stand/WorldAnalyzer.h \
+    synthesis/stand/WorldSpectrums.h \
+    synthesis/Converter.h
 
 SOURCES += \
     standSynth.cpp \
@@ -38,20 +48,30 @@ SOURCES += \
     ../../../tools/utauloid/oto.cpp \
     ../../../editor/Utils.cpp \
     ../../../editor/audio/Source.cpp \
-    generators/F0Generator.cpp \
-    util/Temperament.cpp \
-    generators/FrameGenerator.cpp \
-    synthesis/Synthesis.cpp \
-    synthesis/Corpus.cpp \
-    synthesis/Spectrums.cpp \
-    synthesis/Analysis.cpp \
+    standLogger.cpp \
     Renderer.cpp \
     util/Util.cpp \
+    util/Temperament.cpp \
+    util/SynchronizedRepository.cpp \
+    util/ResourceRepositoryWithFactory.cpp \
+    util/ResourceRepository.cpp \
+    util/ResourceFactory.cpp \
     util/dsp/MinimumPhase.cpp \
     util/dsp/fft.cpp \
-    standLogger.cpp \
-    synthesis/Waveform.cpp \
-    ../plugin/synthesis/WaveRepository.cpp
+    synthesis/Synthesizer.cpp \
+    synthesis/Synthesis.cpp \
+    synthesis/Renderer.cpp \
+    synthesis/stand/WaveformRepository.cpp \
+    synthesis/stand/WaveformFactory.cpp \
+    synthesis/stand/Waveform.cpp \
+    synthesis/stand/FrameList.cpp \
+    synthesis/stand/Corpus.cpp \
+    generators/FrameGenerator.cpp \
+    generators/F0Generator.cpp \
+    synthesis/stand/WorldSynthesizer.cpp \
+    synthesis/stand/WorldAnalyzer.cpp \
+    synthesis/stand/WorldSpectrums.cpp \
+    synthesis/Converter.cpp
 
 QMAKE_CXXFLAGS += -Wall -std=c++11
 

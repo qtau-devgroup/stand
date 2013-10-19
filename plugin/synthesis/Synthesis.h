@@ -2,46 +2,26 @@
 #ifndef STAND_SYNTHESIS_H
 #define STAND_SYNTHESIS_H
 
-#include "generators/FrameGenerator.h"
-#include "synthesis/Spectrums.h"
-#include "util/dsp/MinimumPhase.h"
+#include "utauloid/ust.h"
 
-class standCorpus;
+template <class S, class T> class Converter;
+template <class T> class Synthesizer;
+template <class T> class Renderer;
 
-class standSynthesis
+template <class S, class T> class SynthesisSystem
 {
 public:
-    typedef struct _Config {
-        int fftLength;
-        double msFramePeriod;
-        standCorpus *corpus;
-        //
-        _Config(standCorpus *corpus, double msFramePeriod, int fftLength)
-        {
-            this->corpus = corpus;
-            this->msFramePeriod = msFramePeriod;
-            this->fftLength = fftLength;
-        }
-        _Config(const _Config &other)
-        {
-            this->corpus = other.corpus;
-            this->msFramePeriod = other.msFramePeriod;
-            this->fftLength = other.fftLength;
-        }
-    } Config;
+    SynthesisSystem(
+            Converter<S, T> *converter,
+            Synthesizer<T> *synthesizer,
+            Renderer<T> *renderer
+            );
 
-    explicit standSynthesis(const Config &config);
-    virtual ~standSynthesis();
-    virtual void synthesize(float *raw, int length, const standFrame &frame);
-protected:
-    void synthesizeOneFrame(double *wave, const standSpectrums &spectrums);
-    Config config;
-    standSpectrums aggregate;
-    standSpectrums spectrums;
-    MinimumPhase minimumPhaseCalculator;
-    Fft inverse;
+    virtual void synthesize(float *raw, int samplesBegin, int samplesLength, int fs, const S &sequence);
 private:
-    double *_wave;
+    Converter<S, T> *_converter;
+    Synthesizer<T> *_synthesizer;
+    Renderer<T> *_renderer;
 };
 
 #endif // STAND_SYNTHESIS_H

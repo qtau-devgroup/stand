@@ -2,13 +2,12 @@
 #ifndef STAND_CORPUS_H
 #define STAND_CORPUS_H
 
-#include <QFileInfo>
-#include <QHash>
+#include <QString>
 #include "utauloid/oto.h"
 
+#include "WaveformRepository.h"
+
 class standSpectrums;
-class standWaveRepository;
-class QString;
 
 class standCorpus
 {
@@ -16,7 +15,7 @@ public:
     /**
      * @brief Initializez with waveform cache `repository` and pronounces `otoMap`
      */
-    explicit standCorpus(const standWaveRepository *repository, const QOtoMap &otoMap);
+    explicit standCorpus(standWaveformRepository *repository, const QOtoMap &otoMap);
     virtual ~standCorpus();
 
     /**
@@ -26,7 +25,7 @@ public:
     virtual bool find(standSpectrums &dst, const QString &pronounce, double ms);
 protected:
     QOtoMap otoMap;
-    const standWaveRepository *repository;
+    standWaveformRepository *repository;
 };
 
 #endif // CORPUS_H

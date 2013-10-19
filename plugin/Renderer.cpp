@@ -4,8 +4,6 @@
 #include "generators/F0Generator.h"
 #include "generators/FrameGenerator.h"
 #include "synthesis/Synthesis.h"
-#include "synthesis/Corpus.h"
-#include "synthesis/WaveRepository.h"
 #include "util/Util.h"
 
 #include "Renderer.h"
