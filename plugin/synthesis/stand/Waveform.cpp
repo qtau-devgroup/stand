@@ -2,22 +2,13 @@
 #include <QFileInfo>
 #include "Waveform.h"
 
-standWaveform::standWaveform(float *wave, float *t, float *f0, int fs, int *indices, double msFramePeriod, int length)
+standWaveform::standWaveform(QByteArray &wave, QVector<float> &f0, QVector<int> &indices, int fs, double msFramePeriod, int length) :
+    _wave(wave),
+    _f0(f0),
+    _indices(indices)
 {
-    _f0 = f0;
-    _t = t;
-    _wave = wave;
-    _indices = indices;
     _fs = fs;
     _msFramePeriod = msFramePeriod;
     _length = length;
-}
-
-standWaveform::~standWaveform()
-{
-    delete[] _f0;
-    delete[] _t;
-    delete[] _wave;
-    delete[] _indices;
 }
 

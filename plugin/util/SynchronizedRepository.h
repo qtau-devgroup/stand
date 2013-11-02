@@ -20,7 +20,7 @@ public:
     void remove(const Key &key);
 private:
     QHash<Key, T *> _data;
-    QMutex _mutex;
+    QMutex _read, _write;
     ResourceFactory<Key, T> *_factory;
 };
 

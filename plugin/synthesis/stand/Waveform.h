@@ -2,6 +2,9 @@
 #ifndef STAND_PHONEME_MODEL_H
 #define STAND_PHONEME_MODEL_H
 
+#include <QByteArray>
+#include <QVector>
+
 class QFileInfo;
 
 /**
@@ -10,27 +13,21 @@ class QFileInfo;
 class standWaveform
 {
 public:
-    ~standWaveform();
-
-    const float *f0() const
+    float f0(int i) const
     {
-        return _f0;
-    }
-    const float *t() const
-    {
-        return _t;
+        return _f0.at(i);
     }
     const float *wave() const
     {
-        return _wave;
+        return (float *)_wave.data();
     }
     int fs() const
     {
         return _fs;
     }
-    const int *indices() const
+    int indices(int i) const
     {
-        return _indices;
+        return _indices.at(i);
     }
     double msFramePeriod() const
     {
@@ -42,12 +39,11 @@ public:
     }
 
 private:
-    explicit standWaveform(float *wave, float *t, float *f0, int fs, int *indices, double msFramePeriod, int length);
-    float *_f0;
-    float *_t;
-    float *_wave;
+    explicit standWaveform(QByteArray &wave, QVector<float> &f0, QVector<int> &indices, int fs, double msFramePeriod, int length);
+    QByteArray _wave;
+    QVector<float> _f0;
+    QVector<int> _indices;
     int _fs;
-    int *_indices;
     int _length;
     double _msFramePeriod;
 

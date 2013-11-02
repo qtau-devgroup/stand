@@ -8,7 +8,7 @@ standSynthesizer::standSynthesizer(int fftLength, standCorpus *corpus):
     aggregate(fftLength),
     spectrums(fftLength),
     minimumPhaseCalculator(fftLength),
-    inverse(Fft::Config(fftLength, Fft::Real))
+    inverse(fftLength, Fft::Real)
 {
     _fftLength = fftLength;
     _corpus = corpus;

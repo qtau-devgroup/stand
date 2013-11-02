@@ -3,7 +3,7 @@
 #define FFTTEST_H
 
 #include <QObject>
-#include "util/dsp/Fft.h"
+#include "util/dsp/FftSg.h"
 #include "AutoTest.h"
 
 class FftTest : public QObject
@@ -13,7 +13,7 @@ private slots:
     void forward_fft_of_white_spectrum_is_single_pulse()
     {
         int fftLength = 32;
-        Fft fft(Fft::Config(fftLength, Fft::Complex));
+        Fft fft(fftLength, Fft::Complex);
         double *inout = new double[fftLength * 2];
         for(int i = 0; i < fftLength; i++)
         {
@@ -33,7 +33,7 @@ private slots:
     void forward_fft_of_white_spectrum_is_single_pulse_with_real_method()
     {
         int fftLength = 32;
-        Fft fft(Fft::Config(fftLength, Fft::Real));
+        Fft fft(fftLength, Fft::Real);
         double *inout = new double[fftLength];
         for(int i = 0; i < fftLength; i++)
         {

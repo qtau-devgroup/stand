@@ -1,10 +1,17 @@
-/* Fft.cpp from Stand http://github.com/qtau-devgroup/stand by HAL@ShurabaP, BSD license */
+/* FftSg.cpp from Stand http://github.com/qtau-devgroup/stand by HAL@ShurabaP, BSD license */
 #include <stdlib.h>
 #include <math.h>
 
-#include "fft.h"
+#include "FftSg.h"
 
-Fft::Fft(const Config &config) : _config(config)
+const static double Log2 = log(2.0);
+
+int Fft::suitableLength(int sampleCount)
+{
+    return (int)pow(2.0, (int)(log((double)sampleCount) / Log2 + 1.0));
+}
+
+Fft::Fft(int fftLength, Type type) : _config(fftLength, type)
 {
     _ip = NULL;
     _w = NULL;

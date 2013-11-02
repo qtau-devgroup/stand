@@ -5,7 +5,7 @@
 #include "WorldSpectrums.h"
 #include "synthesis/Synthesizer.h"
 #include "synthesis/stand/FrameList.h"
-#include "util/dsp/Fft.h"
+#include "util/dsp/FftSg.h"
 #include "util/dsp/MinimumPhase.h"
 
 class standCorpus;

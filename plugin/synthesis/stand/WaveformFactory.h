@@ -3,15 +3,25 @@
 #define WAVEFORMFACTORY_H
 
 #include <QFileInfo>
+#include "audio/codecs/Wav.h"
+
 #include "synthesis/stand/Waveform.h"
 #include "util/ResourceFactory.h"
+
+class qtauAudioCodecFactory;
 
 class standWaveformFactory : public ResourceFactory<QString, standWaveform>
 {
 public:
-    standWaveform *create(const QString &filepath);
+    explicit standWaveformFactory(double msFramePeriod, qtauAudioCodecFactory *codec = new qtauWavCodecFactory);
+    virtual ~standWaveformFactory();
+    virtual standWaveform *create(const QString &filepath);
+protected:
+    standWaveform *newWaveform(QByteArray &wave, QVector<float> &f0, QVector<int> &indices, int fs, double msFramePeriod, int length);
+    qtauAudioCodecFactory *codec;
+    double msFramePeriod;
 private:
-    standWaveform *_create(float *wave, float *t, float *f0, int fs, int *indices, double msFramePeriod, int length);
+    QByteArray _readFile(QFile &file);
 };
 
 #endif // WAVEFORMFACTORY_H

@@ -1,4 +1,4 @@
-/* Fft.h from Stand http://github.com/qtau-devgroup/stand by HAL@ShurabaP, BSD license */
+/* FftSg.h from Stand http://github.com/qtau-devgroup/stand by HAL@ShurabaP, BSD license */
 #ifndef FFT_H
 #define FFT_H
 
@@ -31,8 +31,9 @@ public:
         }
     } Config;
 
+    static int suitableLength(int sampleCount);
 public:
-    explicit Fft(const Config &config);
+    explicit Fft(int fftLength, Type type);
     virtual ~Fft();
     void execute(int sign, double *inout);
     const Config &config() const;

@@ -4,8 +4,8 @@
 
 #include <QString>
 #include "synthesis/stand/Waveform.h"
-#include "util/ResourceRepositoryWithFactory.h"
+#include "util/SynchronizedRepository.h"
 
-typedef ResourceRepositoryWithFactory<QString, standWaveform> standWaveformRepository;
+typedef SynchronizedRepository<QString, standWaveform> standWaveformRepository;
 
 #endif // WAVEFORMREPOSITORY_H

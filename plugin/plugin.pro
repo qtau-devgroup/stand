@@ -26,7 +26,6 @@ HEADERS += \
     util/ResourceRepository.h \
     util/ResourceFactory.h \
     util/dsp/MinimumPhase.h \
-    util/dsp/Fft.h \
     synthesis/Synthesizer.h \
     synthesis/Synthesis.h \
     synthesis/stand/WaveformRepository.h \
@@ -40,7 +39,16 @@ HEADERS += \
     synthesis/stand/WorldSynthesizer.h \
     synthesis/stand/WorldAnalyzer.h \
     synthesis/stand/WorldSpectrums.h \
-    synthesis/Converter.h
+    synthesis/Converter.h \
+    ../../../editor/audio/codecs/Wav.h \
+    ../../../editor/audio/Codec.h \
+    ../../../editor/audio/Resampler.h \
+    util/dsp/F0Estimator.h \
+    util/dsp/DioF0Estimator.h \
+    util/dsp/Decimator.h \
+    util/dsp/WindowFunctions.h \
+    util/dsp/helpers/DioHelper.h \
+    util/dsp/FftSg.h
 
 SOURCES += \
     standSynth.cpp \
@@ -57,7 +65,6 @@ SOURCES += \
     util/ResourceRepository.cpp \
     util/ResourceFactory.cpp \
     util/dsp/MinimumPhase.cpp \
-    util/dsp/fft.cpp \
     synthesis/Synthesizer.cpp \
     synthesis/Synthesis.cpp \
     synthesis/Renderer.cpp \
@@ -71,7 +78,15 @@ SOURCES += \
     synthesis/stand/WorldSynthesizer.cpp \
     synthesis/stand/WorldAnalyzer.cpp \
     synthesis/stand/WorldSpectrums.cpp \
-    synthesis/Converter.cpp
+    synthesis/Converter.cpp \
+    ../../../editor/audio/codecs/Wav.cpp \
+    ../../../editor/audio/Codec.cpp \
+    ../../../editor/audio/Resampler.cpp \
+    util/dsp/F0Estimator.cpp \
+    util/dsp/DioF0Estimator.cpp \
+    util/dsp/Decimator.cpp \
+    util/dsp/WindowFunctions.cpp \
+    util/dsp/FftSg.cpp
 
 QMAKE_CXXFLAGS += -Wall -std=c++11
 

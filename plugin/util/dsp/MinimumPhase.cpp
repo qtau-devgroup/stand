@@ -7,7 +7,7 @@
 typedef double fftComplex[2];
 
 MinimumPhase::MinimumPhase(int fftLength) :
-    real(Fft::Config(fftLength, Fft::Real)), complex(Fft::Config(fftLength, Fft::Complex))
+    real(fftLength, Fft::Real), complex(fftLength, Fft::Complex)
 {
 }
 
