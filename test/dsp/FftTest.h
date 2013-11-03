@@ -3,7 +3,7 @@
 #define FFTTEST_H
 
 #include <QObject>
-#include "util/dsp/FftSg.h"
+#include "dsp/FftSg.h"
 #include "AutoTest.h"
 
 class FftTest : public QObject

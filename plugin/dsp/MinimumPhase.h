@@ -2,7 +2,7 @@
 #ifndef MINIMUMPHASE_H
 #define MINIMUMPHASE_H
 
-#include "util/dsp/FftSg.h"
+#include "dsp/FftSg.h"
 
 /**
  * @brief Keeps buffers for calculation of minimum phase spectrum.

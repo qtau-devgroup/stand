@@ -20,35 +20,35 @@ QT += testlib
 
 HEADERS += \
     AutoTest.h \
-    util/dsp/MinimumPhaseTest.h \
-    util/dsp/FftTest.h \
-    util/dsp/DecimatorTest.h \
-    util/dsp/helpers/WorldDecimator.h \
-    util/dsp/DioF0EstimatorTest.h \
-    util/dsp/world/tandem_ap.h \
-    util/dsp/world/synthesis_ap.h \
-    util/dsp/world/star.h \
-    util/dsp/world/platinum.h \
-    util/dsp/world/matlabfunctions.h \
-    util/dsp/world/fft.h \
-    util/dsp/world/dio.h \
-    util/dsp/world/constant_numbers.h \
-    util/dsp/world/common.h \
-    util/dsp/StarSpectrumEstimatorTest.h \
-    util/dsp/world/world_synthesis.h
+    dsp/StarSpectrumEstimatorTest.h \
+    dsp/MinimumPhaseTest.h \
+    dsp/FftTest.h \
+    dsp/DioF0EstimatorTest.h \
+    dsp/DecimatorTest.h \
+    dsp/world/world_synthesis.h \
+    dsp/world/tandem_ap.h \
+    dsp/world/synthesis_ap.h \
+    dsp/world/star.h \
+    dsp/world/platinum.h \
+    dsp/world/matlabfunctions.h \
+    dsp/world/fft.h \
+    dsp/world/dio.h \
+    dsp/world/constant_numbers.h \
+    dsp/world/common.h \
+    dsp/helpers/WorldDecimator.h
 SOURCES += \
     AutoTest.cpp \
     main.cpp \
-    util/dsp/helpers/WorldDecimator.cpp \
-    util/dsp/world/tandem_ap.cpp \
-    util/dsp/world/synthesis_ap.cpp \
-    util/dsp/world/star.cpp \
-    util/dsp/world/platinum.cpp \
-    util/dsp/world/matlabfunctions.cpp \
-    util/dsp/world/dio.cpp \
-    util/dsp/world/common.cpp \
-    util/dsp/world/fft.cpp \
-    util/dsp/world/world_synthesis.cpp
+    dsp/world/world_synthesis.cpp \
+    dsp/world/tandem_ap.cpp \
+    dsp/world/synthesis_ap.cpp \
+    dsp/world/star.cpp \
+    dsp/world/platinum.cpp \
+    dsp/world/matlabfunctions.cpp \
+    dsp/world/fft.cpp \
+    dsp/world/dio.cpp \
+    dsp/world/common.cpp \
+    dsp/helpers/WorldDecimator.cpp
 
 QMAKE_CXXFLAGS += -Wall -std=c++11
 

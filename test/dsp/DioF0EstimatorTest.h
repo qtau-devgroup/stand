@@ -1,8 +1,8 @@
 #ifndef DIOF0ESTIMATORTEST_H
 #define DIOF0ESTIMATORTEST_H
 
-#include "util/dsp/DioF0Estimator.h"
-#include "util/dsp/world/dio.h"
+#include "dsp/DioF0Estimator.h"
+#include "dsp/world/dio.h"
 #include "AutoTest.h"
 #include <qmath.h>
 #include <time.h>

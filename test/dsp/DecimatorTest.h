@@ -3,7 +3,7 @@
 #define DECIMATORTEST_H
 
 #include <QObject>
-#include "util/dsp/Decimator.h"
+#include "dsp/Decimator.h"
 #include "helpers/WorldDecimator.h"
 #include "AutoTest.h"
 

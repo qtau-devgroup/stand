@@ -25,7 +25,6 @@ HEADERS += \
     util/ResourceRepositoryWithFactory.h \
     util/ResourceRepository.h \
     util/ResourceFactory.h \
-    util/dsp/MinimumPhase.h \
     synthesis/Synthesizer.h \
     synthesis/Synthesis.h \
     synthesis/stand/WaveformRepository.h \
@@ -43,14 +42,15 @@ HEADERS += \
     ../../../editor/audio/codecs/Wav.h \
     ../../../editor/audio/Codec.h \
     ../../../editor/audio/Resampler.h \
-    util/dsp/F0Estimator.h \
-    util/dsp/DioF0Estimator.h \
-    util/dsp/Decimator.h \
-    util/dsp/WindowFunctions.h \
-    util/dsp/helpers/DioHelper.h \
-    util/dsp/FftSg.h \
-    util/dsp/SynchronousSpectrumEstimator.h \
-    util/dsp/StarSpectrumEstimator.h
+    dsp/WindowFunctions.h \
+    dsp/SynchronousSpectrumEstimator.h \
+    dsp/StarSpectrumEstimator.h \
+    dsp/MinimumPhase.h \
+    dsp/FftSg.h \
+    dsp/F0Estimator.h \
+    dsp/DioF0Estimator.h \
+    dsp/Decimator.h \
+    dsp/helpers/DioHelper.h
 
 SOURCES += \
     standSynth.cpp \
@@ -66,7 +66,6 @@ SOURCES += \
     util/ResourceRepositoryWithFactory.cpp \
     util/ResourceRepository.cpp \
     util/ResourceFactory.cpp \
-    util/dsp/MinimumPhase.cpp \
     synthesis/Synthesizer.cpp \
     synthesis/Synthesis.cpp \
     synthesis/Renderer.cpp \
@@ -84,13 +83,14 @@ SOURCES += \
     ../../../editor/audio/codecs/Wav.cpp \
     ../../../editor/audio/Codec.cpp \
     ../../../editor/audio/Resampler.cpp \
-    util/dsp/F0Estimator.cpp \
-    util/dsp/DioF0Estimator.cpp \
-    util/dsp/Decimator.cpp \
-    util/dsp/WindowFunctions.cpp \
-    util/dsp/FftSg.cpp \
-    util/dsp/SynchronousSpectrumEstimator.cpp \
-    util/dsp/StarSpectrumEstimator.cpp
+    dsp/WindowFunctions.cpp \
+    dsp/SynchronousSpectrumEstimator.cpp \
+    dsp/StarSpectrumEstimator.cpp \
+    dsp/MinimumPhase.cpp \
+    dsp/FftSg.cpp \
+    dsp/F0Estimator.cpp \
+    dsp/DioF0Estimator.cpp \
+    dsp/Decimator.cpp
 
 QMAKE_CXXFLAGS += -Wall -std=c++11
 

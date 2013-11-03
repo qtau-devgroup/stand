@@ -2,7 +2,7 @@
 #ifndef MINIMUM_PHASE_TEST_H
 #define MINIMUM_PHASE_TEST_H
 
-#include "util/dsp/MinimumPhase.h"
+#include "dsp/MinimumPhase.h"
 #include "AutoTest.h"
 
 // Compare accuracy

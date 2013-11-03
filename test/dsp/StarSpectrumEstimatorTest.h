@@ -2,9 +2,9 @@
 #define STARSPECTRUMESTIMATORTEST_H
 
 #include "StarSpectrumEstimatorTest.h"
-#include "util/dsp/StarSpectrumEstimator.h"
-#include "util/dsp/world/dio.h"
-#include "util/dsp/world/star.h"
+#include "dsp/StarSpectrumEstimator.h"
+#include "dsp/world/dio.h"
+#include "dsp/world/star.h"
 #include "AutoTest.h"
 #include <time.h>
 #include <qmath.h>

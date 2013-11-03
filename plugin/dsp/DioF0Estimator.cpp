@@ -1,9 +1,9 @@
 #include <qmath.h>
 #include <QtAlgorithms>
 #include <float.h>
-#include "util/dsp/Decimator.h"
-#include "util/dsp/FftSg.h"
-#include "util/dsp/WindowFunctions.h"
+#include "dsp/Decimator.h"
+#include "dsp/FftSg.h"
+#include "dsp/WindowFunctions.h"
 #include "DioF0Estimator.h"
 
 const static double Log2 = log(2.0);
