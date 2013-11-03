@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include "./synthesis.h"
+#include "./world_synthesis.h"
 #include "./matlabfunctions.h"
 #include "./common.h"
 #include "./constant_numbers.h"

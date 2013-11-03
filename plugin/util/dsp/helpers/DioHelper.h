@@ -408,6 +408,7 @@ static QList<float> getF0Contour(double **candidates, double **stabilities, int 
     {
         result.append(arrayResult[i]);
     }
+    delete[] arrayResult;
 
     return result;
 }

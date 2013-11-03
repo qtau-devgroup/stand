@@ -48,7 +48,9 @@ HEADERS += \
     util/dsp/Decimator.h \
     util/dsp/WindowFunctions.h \
     util/dsp/helpers/DioHelper.h \
-    util/dsp/FftSg.h
+    util/dsp/FftSg.h \
+    util/dsp/SynchronousSpectrumEstimator.h \
+    util/dsp/StarSpectrumEstimator.h
 
 SOURCES += \
     standSynth.cpp \
@@ -86,7 +88,9 @@ SOURCES += \
     util/dsp/DioF0Estimator.cpp \
     util/dsp/Decimator.cpp \
     util/dsp/WindowFunctions.cpp \
-    util/dsp/FftSg.cpp
+    util/dsp/FftSg.cpp \
+    util/dsp/SynchronousSpectrumEstimator.cpp \
+    util/dsp/StarSpectrumEstimator.cpp
 
 QMAKE_CXXFLAGS += -Wall -std=c++11
 

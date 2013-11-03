@@ -71,7 +71,8 @@ void DioF0Estimator::_getFilteredSignal(double *dst, int halfAverageLength, cons
 
     // And compensate the delay of the signal.
     int offset = halfAverageLength * 2;
-    for (int i = 0; i < spectrum.length; i++)
+    int end = qMin(spectrum.length, spectrum.size - offset);
+    for (int i = 0; i < end; i++)
     {
         dst[i] = dst[i + offset];
     }

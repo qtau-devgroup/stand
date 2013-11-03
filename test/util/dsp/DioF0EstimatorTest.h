@@ -15,7 +15,7 @@ private slots:
     void result_of_estimation_should_be_equal_to_dio()
     {
         const int fs = 44100;
-        const int length = 441000;
+        const int length = 44100 * 10;
         const double msFramePeriod = 2.0;
         const int tLen = GetSamplesForDIO(fs, length, msFramePeriod);
         double *dWave = new double[length];

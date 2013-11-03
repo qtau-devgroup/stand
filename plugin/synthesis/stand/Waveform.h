@@ -39,10 +39,10 @@ public:
     }
 
 private:
-    explicit standWaveform(QByteArray &wave, QVector<float> &f0, QVector<int> &indices, int fs, double msFramePeriod, int length);
+    explicit standWaveform(QByteArray &wave, QList<float> &f0, QList<int> &indices, int fs, double msFramePeriod, int length);
     QByteArray _wave;
-    QVector<float> _f0;
-    QVector<int> _indices;
+    QList<float> _f0;
+    QList<int> _indices;
     int _fs;
     int _length;
     double _msFramePeriod;

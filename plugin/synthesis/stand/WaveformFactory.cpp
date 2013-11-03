@@ -31,7 +31,7 @@ standWaveform *standWaveformFactory::create(const QString &filepath)
     return NULL;
 }
 
-standWaveform *standWaveformFactory::newWaveform(QByteArray &wave, QVector<float> &f0, QVector<int> &indices, int fs, double msFramePeriod, int length)
+standWaveform *standWaveformFactory::newWaveform(QByteArray &wave, QList<float> &f0, QList<int> &indices, int fs, double msFramePeriod, int length)
 {
     return new standWaveform(wave, f0, indices, fs, msFramePeriod, length);
 }

@@ -27,27 +27,28 @@ HEADERS += \
     util/dsp/DioF0EstimatorTest.h \
     util/dsp/world/tandem_ap.h \
     util/dsp/world/synthesis_ap.h \
-    util/dsp/world/synthesis.h \
     util/dsp/world/star.h \
     util/dsp/world/platinum.h \
     util/dsp/world/matlabfunctions.h \
     util/dsp/world/fft.h \
     util/dsp/world/dio.h \
     util/dsp/world/constant_numbers.h \
-    util/dsp/world/common.h
+    util/dsp/world/common.h \
+    util/dsp/StarSpectrumEstimatorTest.h \
+    util/dsp/world/world_synthesis.h
 SOURCES += \
     AutoTest.cpp \
     main.cpp \
     util/dsp/helpers/WorldDecimator.cpp \
     util/dsp/world/tandem_ap.cpp \
     util/dsp/world/synthesis_ap.cpp \
-    util/dsp/world/synthesis.cpp \
     util/dsp/world/star.cpp \
     util/dsp/world/platinum.cpp \
     util/dsp/world/matlabfunctions.cpp \
     util/dsp/world/dio.cpp \
     util/dsp/world/common.cpp \
-    util/dsp/world/fft.cpp
+    util/dsp/world/fft.cpp \
+    util/dsp/world/world_synthesis.cpp
 
 QMAKE_CXXFLAGS += -Wall -std=c++11
 

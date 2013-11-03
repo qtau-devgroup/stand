@@ -17,7 +17,7 @@ public:
     virtual ~standWaveformFactory();
     virtual standWaveform *create(const QString &filepath);
 protected:
-    standWaveform *newWaveform(QByteArray &wave, QVector<float> &f0, QVector<int> &indices, int fs, double msFramePeriod, int length);
+    standWaveform *newWaveform(QByteArray &wave, QList<float> &f0, QList<int> &indices, int fs, double msFramePeriod, int length);
     qtauAudioCodecFactory *codec;
     double msFramePeriod;
 private:

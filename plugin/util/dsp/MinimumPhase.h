@@ -15,7 +15,12 @@ public:
      * @brief Calculates corresponding minimum-phase spectrum to given power specturm
      */
     void execute(double *minimumPhase, double *powerSpectrum);
+    int fftLength() const
+    {
+        return real.config().fftLength;
+    }
 
+private:
     Fft real;
     Fft complex;
 };
