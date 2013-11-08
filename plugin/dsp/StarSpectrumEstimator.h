@@ -11,9 +11,9 @@ public:
     static const double F0Floor;
     static const double F0Default;
     StarSpectrumEstimator(int fftLength, double f0Floor = F0Floor, double f0Default = F0Default);
-    void estimate(double *dst, float *wave, float ms, float f0, int fs, int length);
+    void estimate(double *dst, const float *wave, float ms, float f0, int fs, int length);
 private:
-    void _estimatePowerSpectrum(double *dst, float *wave, float ms, float f0, int fs, int length);
+    void _estimatePowerSpectrum(double *dst, const float *wave, float ms, float f0, int fs, int length);
     void _smootheSpectrum(double *dst, float f0, int fftLength, int fs);
     Fft real;
     double _f0Floor;

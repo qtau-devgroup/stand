@@ -50,7 +50,8 @@ HEADERS += \
     dsp/F0Estimator.h \
     dsp/DioF0Estimator.h \
     dsp/Decimator.h \
-    dsp/helpers/DioHelper.h
+    dsp/helpers/DioHelper.h \
+    ../plugin/dsp/PlatinumSpectrumEstimator.h
 
 SOURCES += \
     standSynth.cpp \
@@ -90,7 +91,8 @@ SOURCES += \
     dsp/FftSg.cpp \
     dsp/F0Estimator.cpp \
     dsp/DioF0Estimator.cpp \
-    dsp/Decimator.cpp
+    dsp/Decimator.cpp \
+    ../plugin/dsp/PlatinumSpectrumEstimator.cpp
 
 QMAKE_CXXFLAGS += -Wall -std=c++11
 

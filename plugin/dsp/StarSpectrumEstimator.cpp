@@ -13,7 +13,7 @@ StarSpectrumEstimator::StarSpectrumEstimator(int fftLength, double f0Floor, doub
     _f0Default = f0Default;
 }
 
-void StarSpectrumEstimator::estimate(double *dst, float *wave, float ms, float f0, int fs, int length)
+void StarSpectrumEstimator::estimate(double *dst, const float *wave, float ms, float f0, int fs, int length)
 {
     // modified 0 Hz to suitable dummy f0.
     f0 = f0 < _f0Floor ? _f0Default : f0;
@@ -23,7 +23,7 @@ void StarSpectrumEstimator::estimate(double *dst, float *wave, float ms, float f
     _smootheSpectrum(dst, f0, real.config().fftLength, fs);
 }
 
-void StarSpectrumEstimator::_estimatePowerSpectrum(double *dst, float *wave, float ms, float f0, int fs, int length)
+void StarSpectrumEstimator::_estimatePowerSpectrum(double *dst, const float *wave, float ms, float f0, int fs, int length)
 {
     int fftLength = real.config().fftLength;
     int halfWindowLength = qRound(3.0 * fs / f0 / 2.0);
