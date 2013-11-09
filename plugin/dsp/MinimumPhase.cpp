@@ -12,7 +12,7 @@ MinimumPhase::MinimumPhase(int fftLength) :
 }
 
 
-void MinimumPhase::execute(double *minimumPhase, double *powerSpectrum)
+void MinimumPhase::execute(double *minimumPhase, const double *powerSpectrum)
 {
     int fftLength = real.config().fftLength;
     for(int i = 0; i <= fftLength / 2; i++)
@@ -23,10 +23,6 @@ void MinimumPhase::execute(double *minimumPhase, double *powerSpectrum)
     for(int i = fftLength / 2 + 1; i < fftLength; i++)
     {
         minimumPhase[i] = minimumPhase[fftLength - i];
-    }
-    for(int i = fftLength + 1; i < fftLength * 2; i++)
-    {
-        minimumPhase[i] = 0.0;
     }
     // power spectrum -> cepstrum
     real.execute(Fft::Forward, minimumPhase);

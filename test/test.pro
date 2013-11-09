@@ -35,7 +35,8 @@ HEADERS += \
     dsp/world/dio.h \
     dsp/world/constant_numbers.h \
     dsp/world/common.h \
-    dsp/helpers/WorldDecimator.h
+    dsp/helpers/WorldDecimator.h \
+    dsp/PlatinumResidualCalculatorTest.h
 SOURCES += \
     AutoTest.cpp \
     main.cpp \

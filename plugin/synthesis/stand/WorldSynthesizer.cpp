@@ -68,14 +68,14 @@ void standSynthesizer::synthesizeOneFrame(double *wave, const standSpectrums &sp
     {
         double re = wave[i * 2];
         double im = wave[i * 2 + 1];
-        wave[i * 2] = re * spectrums.residual[i * 2 - 1] - im * spectrums.residual[i * 2];
-        wave[i * 2 + 1] = im * spectrums.residual[i * 2] + re * spectrums.residual[i * 2 - 1];
+        wave[i * 2] = re * spectrums.residual[i * 2] - im * spectrums.residual[i * 2 + 1];
+        wave[i * 2 + 1] = im * spectrums.residual[i * 2 + 1] + re * spectrums.residual[i * 2];
     }
-    wave[1] = wave[_fftLength] * spectrums.residual[_fftLength - 1];
+    wave[1] = wave[_fftLength] * spectrums.residual[1];
     // inverse FFT and get raw waveform in wave.
     inverse.execute(Fft::Inverse, wave);
     for(int i = 0; i < _fftLength; i++)
     {
-        wave[i] *= 2.0;
+        wave[i] /= _fftLength;
     }
 }
