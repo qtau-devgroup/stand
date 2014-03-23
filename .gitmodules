@@ -1,0 +1,6 @@
+[submodule "core"]
+	path = core
+	url = git@github.com:qtau-devgroup/libstand.git
+[submodule "libstand"]
+	path = libstand
+	url = git@github.com:qtau-devgroup/libstand.git

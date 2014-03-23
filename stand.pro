@@ -7,5 +7,6 @@ TEMPLATE = subdirs
 CONFIG += ordered
 
 SUBDIRS += \
+    libstand \
     plugin \
     test

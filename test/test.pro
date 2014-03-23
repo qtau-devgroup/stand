@@ -19,37 +19,10 @@ TARGET   = $$qtLibraryTarget(standTest)
 QT += testlib
 
 HEADERS += \
-    AutoTest.h \
-    dsp/StarSpectrumEstimatorTest.h \
-    dsp/MinimumPhaseTest.h \
-    dsp/FftTest.h \
-    dsp/DioF0EstimatorTest.h \
-    dsp/DecimatorTest.h \
-    dsp/world/world_synthesis.h \
-    dsp/world/tandem_ap.h \
-    dsp/world/synthesis_ap.h \
-    dsp/world/star.h \
-    dsp/world/platinum.h \
-    dsp/world/matlabfunctions.h \
-    dsp/world/fft.h \
-    dsp/world/dio.h \
-    dsp/world/constant_numbers.h \
-    dsp/world/common.h \
-    dsp/helpers/WorldDecimator.h \
-    dsp/PlatinumResidualCalculatorTest.h
+    AutoTest.h
 SOURCES += \
     AutoTest.cpp \
-    main.cpp \
-    dsp/world/world_synthesis.cpp \
-    dsp/world/tandem_ap.cpp \
-    dsp/world/synthesis_ap.cpp \
-    dsp/world/star.cpp \
-    dsp/world/platinum.cpp \
-    dsp/world/matlabfunctions.cpp \
-    dsp/world/fft.cpp \
-    dsp/world/dio.cpp \
-    dsp/world/common.cpp \
-    dsp/helpers/WorldDecimator.cpp
+    main.cpp
 
 QMAKE_CXXFLAGS += -Wall -std=c++11
 
